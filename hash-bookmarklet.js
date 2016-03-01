@@ -7,7 +7,7 @@ function escapeRegExp(str) {
 }
 $.ajax({
     /* Hanoi */
-    url: 'http://192.168.16.81/hasher/decrypt',
+    url: 'http://hanoi.internal.azavea.com/hasher/decrypt',
     data: {d: getSelectedText()},
     dataType: 'jsonp',
     jsonp: 'jsonp',
