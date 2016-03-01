@@ -1,0 +1,23 @@
+{
+  "name": "hasher-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "hash-bookmarklet.js",
+  "scripts": {
+    "build": "uglifyjs bookmarklet.js -o dist/bookmarklet.js --mangle --compress --enclose",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kdeloach/hasher-service.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kdeloach/hasher-service/issues"
+  },
+  "homepage": "https://github.com/kdeloach/hasher-service#readme",
+  "dependencies": {
+    "uglify-js": "^2.6.2"
+  }
+}
