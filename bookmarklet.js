@@ -1,20 +1,25 @@
-var getSelectedText = function() {
-    return '' + document.getSelection();
-};
-/* Source: http://stackoverflow.com/a/6969486 */
-function escapeRegExp(str) {
-  return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+if (typeof window.jQuery !== 'undefined') {
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.src = '//code.jquery.com/jquery-1.12.1.min.js';
+    document.body.appendChild(s);
 }
-$.ajax({
-    /* Hanoi */
+
+function getSelectedText() {
+    return '' + document.getSelection();
+}
+
+window.jQuery.ajax({
     url: 'http://hanoi.internal.azavea.com/hasher/decrypt',
     data: {d: getSelectedText()},
     dataType: 'jsonp',
     jsonp: 'jsonp',
     success: function(data, status, xhr) {
         if (data && data.original && data.decrypted) {
-            document.body.innerHTML = document.body.innerHTML.replace(
-                new RegExp(escapeRegExp(data.original), 'g'), data.decrypted);
+            while (document.body.innerHTML.indexOf(data.original) !== -1) {
+                document.body.innerHTML = document.body.innerHTML.replace(
+                    data.original, data.decrypted);
+            }
         }
     }
 });
