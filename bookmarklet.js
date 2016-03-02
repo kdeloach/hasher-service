@@ -1,4 +1,4 @@
-if (typeof window.jQuery !== 'undefined') {
+if (typeof window.jQuery === 'undefined') {
     var s = document.createElement('script');
     s.type = 'text/javascript';
     s.src = '//code.jquery.com/jquery-1.12.1.min.js';
