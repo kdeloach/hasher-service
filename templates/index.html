@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Hasher Service</title>
+</head>
+<body>
+    <h1>Hasher Service</h1>
+
+    <h2>Supported Endpoints</h2>
+
+    <h3><code>/decrypt</code></h3>
+    <h4>Querystring arguments</h4>
+    <table border="1">
+        <tr><td><code>d</code></td><td>String to decrypt</td></tr>
+        <tr><td><code>jsonp</code> (Optional)</td><td>JSONP callback name</td></tr>
+    </table>
+
+    <h2>Examples</h2>
+    <table border="1">
+        <tr>
+            <th>Request</th>
+            <th>Response</th>
+        </tr>
+        <tr>
+            <td><code>/decrypt?d=XBUbJac69zPSRCMflRqg6g==</code></td>
+            <td>
+<pre>{
+  "decrypted": "hello world",
+  "original": "XBUbJac69zPSRCMflRqg6g=="
+}</pre></td>
+        </tr>
+        <tr>
+            <td><code>/decrypt?d=XBUbJac69zPSRCMflRqg6g==&jsonp=foo</code></td>
+            <td><code>foo({u'decrypted': 'hello world', u'original': 'XBUbJac69zPSRCMflRqg6g=='});</code></td>
+        </tr>
+    </table>
+
+    <h2>Test</h2>
+    <form method="get" action="decrypt">
+        <p>d: <input type="text" name="d" /></p>
+        <p><input type="submit" /></p>
+    </form>
+</body>
+</html>
