@@ -6,7 +6,8 @@ from __future__ import division
 
 import subprocess
 
-from flask import Flask, request, jsonify, render_template
+import json
+from flask import Flask, request, Response, render_template
 
 
 app = Flask(__name__)
@@ -21,12 +22,13 @@ def index():
 def decrypt():
     d = request.args.get('d', '')
     jsonp = request.args.get('jsonp', False)
-    json = decrypt_result(d)
+    response = json.dumps(decrypt_result(d))
 
     if jsonp:
-        return '{0}({1});'.format(jsonp, json)
+        return Response('{0}({1});'.format(jsonp, response),
+                        mimetype='application/javascript')
     else:
-        return jsonify(json)
+        return Response(response, mimetype='application/json')
 
 
 def decrypt_result(value):
