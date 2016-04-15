@@ -6,6 +6,8 @@ from __future__ import division
 
 import subprocess
 
+from datetime import datetime
+
 import json
 from flask import Flask, request, Response, render_template
 
@@ -16,6 +18,19 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('index.html')
+
+
+@app.route('/health')
+def health():
+    headers = {
+        'Content-Type': 'text/xml'
+    }
+
+    context = decrypt_result('XBUbJac69zPSRCMflRqg6g==')
+    context.update({
+        'time': datetime.utcnow(),
+    })
+    return render_template('health.xml', **context), 200, headers
 
 
 @app.route('/decrypt')
@@ -44,4 +59,4 @@ def decrypt_result(value):
 
 
 if __name__ == '__main__':
-    app.run(port=5679)
+    app.run(host='0.0.0.0', port=5679)

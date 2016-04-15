@@ -1,0 +1,4 @@
+<AppHealth name="hasher service" version="1" time="{{ time }}">
+    <Metric id="original">{{ original }}</Metric>
+    <Metric id="decrypted">{{ decrypted }}</Metric>
+</AppHealth>
