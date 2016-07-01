@@ -49,9 +49,9 @@ function growl(kind, msg, lifespan) {
 }
 
 function d(word) {
-    var $el = growl('info', 'Decrypting ' + word + ' <img src="http://hanoi.internal.azavea.com/hasher/static/loading.gif" alt="..." />', 0);
+    var $el = growl('info', 'Decrypting ' + word + ' <img src="http://algiers.internal.azavea.com/hasher/static/loading.gif" alt="..." />', 0);
     $.ajax({
-        url: 'http://hanoi.internal.azavea.com/hasher/decrypt',
+        url: 'http://algiers.internal.azavea.com/hasher/decrypt',
         data: {d: word},
         dataType: 'jsonp',
         jsonp: 'jsonp',

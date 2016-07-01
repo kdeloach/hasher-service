@@ -48,7 +48,7 @@ def decrypt():
 
 def decrypt_result(value):
     res = subprocess.Popen(
-        ['/var/projects/HasherConsole/hasher_console.exe', value],
+        ['hasher_console.exe', value],
         stdout=subprocess.PIPE
     )
     lines = [line.rstrip() for line in res.stdout]

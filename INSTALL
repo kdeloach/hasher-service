@@ -1,0 +1,16 @@
+1. Install dependencies
+
+virtualenv env
+source env/bin/activate
+pip install -r requirements.txt
+
+2. Configure service
+
+cp etc/init/hasher-service.conf /etc/init/
+sudo start hasher-service
+
+3. Configure nginx
+
+location /hasher/ {
+    proxy_pass http://localhost:5678/;
+}
